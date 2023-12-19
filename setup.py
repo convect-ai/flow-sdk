@@ -17,7 +17,7 @@ TEST_REQUIREMENTS = [
 
 setup(
     name="convect-flow-sdk",
-    version="0.0.1",
+    version='{{VERSION_PLACEHOLDER}}',
     description="convect flow sdk",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
