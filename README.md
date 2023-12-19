@@ -10,7 +10,12 @@ pip install convect-flow-sdk
 ## Usage
 
 ```bash
+# set up environment variables
+# FLOW_WORKSPACE_ID: your flow workspace id
+# FLOW_API_TOKEN: your flow api token from the workspace
+# FLOW_HOST: flow host, default to https://flow.convect.ai
 from convect_flow_sdk import FlowAlgo
+from pprint import pprint
 # this is an example of how to use the flow_algo_sdk
 flow_algo = FlowAlgo()
 # this algo_id is will be the one defined in the algo project

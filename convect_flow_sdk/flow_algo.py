@@ -153,7 +153,8 @@ class FlowAlgo:
         _data = {
             "workspace_id": self.flow_workspace_id,
         }
-        r = requests.post(_api_url, headers=self.get_credential_header(), params=pagination)
+        r = requests.post(_api_url, headers=self.get_credential_header(), params=pagination,json=_data)
+        print(r.json())
         r.raise_for_status()
         return r.json()
 
