@@ -36,6 +36,6 @@ setup(
         "tests": TEST_REQUIREMENTS,
     },
 
-    python_requires=">=3.9.*",
+    python_requires=">=3.9",
     url='https://github.com/convect-ai/flow-sdk'
 )
