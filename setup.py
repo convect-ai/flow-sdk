@@ -18,7 +18,9 @@ TEST_REQUIREMENTS = [
 setup(
     name="convect-flow-sdk",
     version="0.0.1",
-    description="flow sdk",
+    description="convect flow sdk",
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     author="convect.ai",
     author_email="hi@convect.ai",
     packages=find_packages(),
@@ -33,5 +35,7 @@ setup(
     extras_require={
         "tests": TEST_REQUIREMENTS,
     },
+
     python_requires=">=3.9.*",
+    url='https://github.com/convect-ai/flow-sdk'
 )
