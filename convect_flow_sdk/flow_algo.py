@@ -11,7 +11,7 @@ import requests
 import tarfile
 import zipfile
 import hashlib
-from constants import RunStatus
+from .constants import RunStatus
 
 def extract_archive(archive_path, target_folder):
     """
