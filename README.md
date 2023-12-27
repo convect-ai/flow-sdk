@@ -41,3 +41,15 @@ flow_algo.gather(run_id,"./output")
 # flow_algo_sdk.clear_local_algo_cache()
 # clear local algo cache will delete the local history of submitted runs
 ```
+
+## Development
+### Regression Test
+```bash
+# set up environment variables
+# FLOW_WORKSPACE_ID: your flow workspace id
+# FLOW_API_TOKEN: your flow api token from the workspace
+# FLOW_HOST: flow host
+# you need to make sure the workspace has all the active apps
+# you can run the following command to run the regression test
+flow-cli regression-test
+```

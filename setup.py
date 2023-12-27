@@ -37,5 +37,8 @@ setup(
     },
 
     python_requires=">=3.9",
-    url='https://github.com/convect-ai/flow-sdk'
+    url='https://github.com/convect-ai/flow-sdk',
+    entry_points = {
+    "console_scripts": ["flow-cli=convect_flow_sdk.cli:run_command"]
+    },
 )

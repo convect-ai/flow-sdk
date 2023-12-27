@@ -5,3 +5,13 @@ class RunStatus(Enum):
     FAILED = "FAILED"
     UNKNOWN = "UNKNOWN"
     CANCELLED = "CANCELLED"
+
+
+class DataType(Enum):
+    INPUT = "INPUT"
+    OUTPUT = "OUTPUT"
+
+
+class LangType(Enum):
+    EN = "EN"
+    ZH = "ZH"
