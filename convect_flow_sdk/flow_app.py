@@ -45,7 +45,7 @@ def list_app(flow_host_url=None,flow_api_token=None):
         raise ValueError("Flow api token is not set")
     flow_host_url = flow_host_url.rstrip("/")
     api_url = f"{flow_host_url}/flowopt-server/api/apps/list"
-    r = requests.get(api_url, headers={"CAuthorization": f"bearer {flow_api_token}"})
+    r = requests.get(api_url, headers={"CAuthorization": f"bearer {flow_api_token}"}, params={"page": 1, "page_size": 99})
     r.raise_for_status()
     app_list = r.json()
     for app in app_list:
@@ -128,7 +128,7 @@ class FlowApp:
         app_id = self.get_app_id()
         _url = self.api_url + f"workspace/{self.flow_workspace_id}/all_apps"
         # r = request_cache(_url, headers_str=json.dumps(self.get_credential_header()))
-        r = requests.get(_url, headers=self.get_credential_header())
+        r = requests.get(_url, headers=self.get_credential_header(), params={"page": 1, "page_size": 99})
         r.raise_for_status()
         app_list = r.json()
         for app in app_list:
