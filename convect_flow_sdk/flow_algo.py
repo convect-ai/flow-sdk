@@ -64,9 +64,10 @@ def compress_to_tar_gz(source_folder, target_file):
                 tarinfo = tar.gettarinfo(full_path, arcname=arcname)
                 with open(full_path, "rb") as fileobj:
                     tar.addfile(tarinfo, fileobj)
+                    fileobj.seek(0)
                     file_md5.append(hashlib.md5(fileobj.read()).hexdigest())
     # sort file_md5 to make sure the order is consistent
-    file_md5 = file_md5.sort()
+    file_md5.sort()
     return hashlib.md5(json.dumps(file_md5).encode()).hexdigest()
 
 def generate_run_hash(
@@ -312,9 +313,11 @@ class FlowAlgo:
         with tempfile.TemporaryDirectory() as temp_dir:
             input_tar_gz_file = os.path.join(temp_dir, "input.tar.gz")
             input_file_md5 = compress_to_tar_gz(input_path, input_tar_gz_file)
+            # print(f"algo run input file md5: {input_file_md5}")
             run_hash = generate_run_hash(
                 self.flow_host_url, self.flow_workspace_id, algo_id, command, config, input_file_md5
             )
+            # print(f"algo run hash: {run_hash}")
             # check if run_hash exists
             _run_hash_file_name = os.path.join(self.local_cache_dir,f"algo-run-{run_hash}.json")
             if os.path.exists(_run_hash_file_name):
